@@ -6,7 +6,7 @@
 /*   By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 13:18:58 by ljudd             #+#    #+#             */
-/*   Updated: 2025/05/14 16:22:22 by ljudd            ###   ########.fr       */
+/*   Updated: 2025/05/14 16:28:04 by ljudd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ char	ft_pushswap_sort4(t_pushswap_ab *ab, char *state)
 		return (ft_pushswap_sort4_p3(ab, state));
 	else
 	{
-		if (ft_pushswap_idealpos(ab->a, ab->na, ab->a[0]) == 0)
+		if (ft_pushswap_islowestfirst(ab))
 		{
 			*state = 0;
 			return (-1);

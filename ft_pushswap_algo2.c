@@ -6,7 +6,7 @@
 /*   By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 15:20:06 by ljudd             #+#    #+#             */
-/*   Updated: 2025/05/14 16:20:35 by ljudd            ###   ########.fr       */
+/*   Updated: 2025/05/14 16:28:08 by ljudd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,23 @@ size_t	ft_pushswap_idealpos(int *x, size_t size, int n)
 	size_t	res;
 
 	res = 0;
-	while (x[res] > n && res < size)
+	while (n > x[res] && res < size)
 		res++;
 	return (res);
+}
+
+/*verify that the first element is the lowest*/
+char	ft_pushswap_islowestfirst(t_pushswap_ab *ab)
+{
+	size_t	k;
+
+	k = 0;
+	while (++k < ab->na)
+	{
+		if (ab->a[0] > ab->a[k])
+			return (0);
+	}
+	return (1);
 }
 
 char	ft_pushswap_sortturk(t_pushswap_ab *ab, char *state)

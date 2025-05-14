@@ -6,7 +6,7 @@
 /*   By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 09:12:10 by ljudd             #+#    #+#             */
-/*   Updated: 2025/05/14 16:17:09 by ljudd            ###   ########.fr       */
+/*   Updated: 2025/05/14 16:28:18 by ljudd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ char			ft_pushswap_sort2(t_pushswap_ab *ab, char *state);
 /* ft_pushswap_algo2.c*/
 size_t			ft_pushswap_idealpos(int *x, size_t size, int n);
 char			ft_pushswap_sortturk(t_pushswap_ab *ab, char *state);
+char			ft_pushswap_islowestfirst(t_pushswap_ab *ab);
 
 #endif
