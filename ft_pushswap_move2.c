@@ -6,7 +6,7 @@
 /*   By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 15:05:49 by ljudd             #+#    #+#             */
-/*   Updated: 2025/05/14 09:33:36 by ljudd            ###   ########.fr       */
+/*   Updated: 2025/05/14 12:37:13 by ljudd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	ft_pushswap_pa(t_pushswap_ab **ab)
 
 	if ((*ab)->nb < 1)
 		return ;
-	k = -1;
-	while (++k < (*ab)->na)
-		(*ab)->a[k + 1] = (*ab)->a[k];
+	k = (*ab)->na + 1;
+	while (--k > 0)
+		(*ab)->a[k] = (*ab)->a[k - 1];
 	(*ab)->a[0] = (*ab)->b[0];
 	k = 0;
 	while (++k < (*ab)->nb)
@@ -35,9 +35,9 @@ void	ft_pushswap_pb(t_pushswap_ab **ab)
 
 	if ((*ab)->na < 1)
 		return ;
-	k = -1;
-	while (++k < (*ab)->nb)
-		(*ab)->b[k + 1] = (*ab)->b[k];
+	k = (*ab)->nb + 1;
+	while (--k > 0)
+		(*ab)->b[k] = (*ab)->b[k - 1];
 	(*ab)->b[0] = (*ab)->a[0];
 	k = 0;
 	while (++k < (*ab)->na)

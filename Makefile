@@ -6,7 +6,7 @@
 #    By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 09:37:05 by ljudd             #+#    #+#              #
-#    Updated: 2025/05/14 09:31:45 by ljudd            ###   ########.fr        #
+#    Updated: 2025/05/14 16:08:09 by ljudd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,9 @@ SOURCES			= push_swap.c \
 	ft_pushswap_inputs.c \
 	ft_pushswap_move1.c \
 	ft_pushswap_move2.c \
-	ft_pushswap_move3.c
+	ft_pushswap_move3.c \
+	ft_pushswap_algo1.c \
+	ft_pushswap_algo2.c
 HEADER			= push_swap.h
 INCLUDES		= push_swap.h -Iprintf
 OBJECTS			= $(SOURCES:.c=.o)
