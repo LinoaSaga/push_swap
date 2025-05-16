@@ -6,7 +6,7 @@
 /*   By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 09:12:10 by ljudd             #+#    #+#             */
-/*   Updated: 2025/05/14 16:28:18 by ljudd            ###   ########.fr       */
+/*   Updated: 2025/05/16 11:36:18 by ljudd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,18 @@ typedef struct s_pushswap_ab
 	size_t	na;
 	size_t	nb;
 }	t_pushswap_ab;
+
+/* struct to stock infos while optimal next move calculation*/
+/* see algoturkp2 function */
+/* calculate for an element in a, the element that should be first in b*/
+/* the number of operations to push a correctly in b and the next_move to do*/
+typedef struct s_pushswap_nmove
+{
+	size_t			ka;
+	size_t			kb;
+	char			n_move;
+	unsigned int	nb_op;
+}	t_pushswap_nmove;
 
 /* ft_pushswap_inputs.c*/
 t_pushswap_ab	*ft_pushswap_getinputs(int argc, char **argv);
@@ -60,5 +72,18 @@ char			ft_pushswap_sort2(t_pushswap_ab *ab, char *state);
 size_t			ft_pushswap_idealpos(int *x, size_t size, int n);
 char			ft_pushswap_sortturk(t_pushswap_ab *ab, char *state);
 char			ft_pushswap_islowestfirst(t_pushswap_ab *ab);
+/* ft_pushswap_algoturk1.c*/
+char			ft_pushswap_sortturk(t_pushswap_ab *ab, char *state);
+/* ft_pushswap_algoturk2.c*/
+void			ft_pushswap_sortturk_evalop_kb(t_pushswap_ab *ab,
+					t_pushswap_nmove *nm);
+void			ft_pushswap_sortturk_evalop_ud(t_pushswap_ab *ab,
+					t_pushswap_nmove *nm);
+void			ft_pushswap_sortturk_evalop_du(t_pushswap_ab *ab,
+					t_pushswap_nmove *nm);
+void			ft_pushswap_sortturk_evalop_uu(t_pushswap_ab *ab,
+					t_pushswap_nmove *nm);
+void			ft_pushswap_sortturk_evalop_dd(t_pushswap_ab *ab,
+					t_pushswap_nmove *nm);
 
 #endif

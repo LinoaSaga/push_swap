@@ -6,7 +6,7 @@
 /*   By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 15:20:06 by ljudd             #+#    #+#             */
-/*   Updated: 2025/05/14 16:28:08 by ljudd            ###   ########.fr       */
+/*   Updated: 2025/05/15 11:29:19 by ljudd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,4 @@ char	ft_pushswap_islowestfirst(t_pushswap_ab *ab)
 			return (0);
 	}
 	return (1);
-}
-
-char	ft_pushswap_sortturk(t_pushswap_ab *ab, char *state)
-{
-	(void) ab;
-	*state = 0;
-	return (-1);
 }
