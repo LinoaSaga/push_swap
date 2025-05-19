@@ -6,13 +6,14 @@
 /*   By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 09:48:40 by ljudd             #+#    #+#             */
-/*   Updated: 2025/05/16 11:49:54 by ljudd            ###   ########.fr       */
+/*   Updated: 2025/05/19 10:46:07 by ljudd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* we determine the element in b that should be first*/
+/* search in the array the position of the lowest int above n*/
+/* if none is found, return the position of the lowest int*/
 void	ft_pushswap_sortturk_evalop_kb(t_pushswap_ab *ab, t_pushswap_nmove *nm)
 {
 	int		lowmax;
@@ -24,13 +25,15 @@ void	ft_pushswap_sortturk_evalop_kb(t_pushswap_ab *ab, t_pushswap_nmove *nm)
 	lowmax = INT_MAX;
 	while (++k < ab->nb)
 	{
-		if (k == 0 || (ab->a[nm->ka] < ab->b[k] && ab->b[k] < lowmax))
+		if ((ab->a[nm->ka] < ab->b[k] && ab->b[k] < lowmax))
 		{
 			lowmax = ab->b[k];
 			pos_lm = k;
 		}
 	}
 	nm->kb = pos_lm;
+	if (pos_lm == (size_t) -1)
+		nm->kb = ft_pushswap_lowestpos(ab->b, ab->nb);
 }
 
 /* Rotate a up and b down*/

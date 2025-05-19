@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pushswap_algo2.c                                :+:      :+:    :+:   */
+/*   ft_pushswap_algo_utils.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 15:20:06 by ljudd             #+#    #+#             */
-/*   Updated: 2025/05/15 11:29:19 by ljudd            ###   ########.fr       */
+/*   Updated: 2025/05/19 09:51:05 by ljudd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,25 @@ char	ft_pushswap_islowestfirst(t_pushswap_ab *ab)
 			return (0);
 	}
 	return (1);
+}
+
+/* search in the array the position of the lowest int*/
+size_t	ft_pushswap_lowestpos(int *x, size_t size)
+{
+	size_t	k;
+	size_t	res;
+	int		lowest;
+
+	k = -1;
+	lowest = INT_MAX;
+	res = -1;
+	while (++k < size)
+	{
+		if (x[k] < lowest)
+		{
+			lowest = x[k];
+			res = k;
+		}
+	}
+	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 11:29:05 by ljudd             #+#    #+#             */
-/*   Updated: 2025/05/16 11:53:44 by ljudd            ###   ########.fr       */
+/*   Updated: 2025/05/19 10:46:14 by ljudd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,8 @@ char	ft_pushswap_sortturk_p4(t_pushswap_ab *ab, char *state)
 			pos_lm = k;
 		}
 	}
-	ft_printf("%d", pos_lm);
+	if (pos_lm == (size_t) -1)
+		pos_lm = ft_pushswap_lowestpos(ab->a, ab->na);
 	if (pos_lm == 0)
 		return (3);
 	else if (pos_lm < ab->na / 2)
