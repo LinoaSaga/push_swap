@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pushswap_algo1.c                                :+:      :+:    :+:   */
+/*   ft_pushswap_algo.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 13:18:58 by ljudd             #+#    #+#             */
-/*   Updated: 2025/05/14 16:28:04 by ljudd            ###   ########.fr       */
+/*   Updated: 2025/05/19 11:57:30 by ljudd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /* sort list of 2*/
 /* a simple swap if required*/
-char	ft_pushswap_sort2(t_pushswap_ab *ab, char *state)
+static char	ft_pushswap_sort2(t_pushswap_ab *ab, char *state)
 {
 	if (ab->a[0] < ab->a[1])
 	{
@@ -48,7 +48,7 @@ char	ft_pushswap_sort3(t_pushswap_ab *ab, char *state)
 }
 
 /* sub function for the p3, due to line limits*/
-char	ft_pushswap_sort4_p3(t_pushswap_ab *ab, char *state)
+static char	ft_pushswap_sort4_p3(t_pushswap_ab *ab, char *state)
 {
 	size_t	ideal_pos_b;
 
@@ -68,7 +68,7 @@ char	ft_pushswap_sort4_p3(t_pushswap_ab *ab, char *state)
 /* 2 we sort the 3 elements in a*/
 /* 3 we rotate until we can push the last element at his place in a*/
 /* 4 we rotate a until lowest in first position*/
-char	ft_pushswap_sort4(t_pushswap_ab *ab, char *state)
+static char	ft_pushswap_sort4(t_pushswap_ab *ab, char *state)
 {
 	char	res;
 
@@ -115,6 +115,8 @@ char	ft_pushswap_calcmove(t_pushswap_ab *ab, char *state)
 		return (ft_pushswap_sort3(ab, state));
 	else if (n == 4)
 		return (ft_pushswap_sort4(ab, state));
+	else if (n == 5)
+		return (ft_pushswap_sort5(ab, state));
 	else
 		return (ft_pushswap_sortturk(ab, state));
 }

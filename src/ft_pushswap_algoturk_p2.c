@@ -1,39 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pushswap_algoturk2.c                            :+:      :+:    :+:   */
+/*   ft_pushswap_algoturk_p2.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 09:48:40 by ljudd             #+#    #+#             */
-/*   Updated: 2025/05/19 10:46:07 by ljudd            ###   ########.fr       */
+/*   Updated: 2025/05/19 11:57:34 by ljudd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* search in the array the position of the lowest int above n*/
-/* if none is found, return the position of the lowest int*/
+/* Sub functions specifically used in p2*/
+
+/* search in the array the position of the highest int below n*/
+/* if none is found, return the position of the highest int*/
 void	ft_pushswap_sortturk_evalop_kb(t_pushswap_ab *ab, t_pushswap_nmove *nm)
 {
-	int		lowmax;
+	int		maxlow;
 	size_t	pos_lm;
 	size_t	k;
 
 	pos_lm = -1;
 	k = -1;
-	lowmax = INT_MAX;
+	maxlow = INT_MIN;
 	while (++k < ab->nb)
 	{
-		if ((ab->a[nm->ka] < ab->b[k] && ab->b[k] < lowmax))
+		if ((ab->a[nm->ka] > ab->b[k] && ab->b[k] > maxlow))
 		{
-			lowmax = ab->b[k];
+			maxlow = ab->b[k];
 			pos_lm = k;
 		}
 	}
 	nm->kb = pos_lm;
 	if (pos_lm == (size_t) -1)
-		nm->kb = ft_pushswap_lowestpos(ab->b, ab->nb);
+		nm->kb = ft_pushswap_highestpos(ab->b, ab->nb);
 }
 
 /* Rotate a up and b down*/

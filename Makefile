@@ -6,25 +6,38 @@
 #    By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 09:37:05 by ljudd             #+#    #+#              #
-#    Updated: 2025/05/19 09:37:30 by ljudd            ###   ########.fr        #
+#    Updated: 2025/05/19 16:33:41 by ljudd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC				= cc
 CFLAGS			= -Wall -Wextra -Werror
 NAME			= push_swap
-SOURCES			= push_swap.c \
-	ft_pushswap_inputs.c \
-	ft_pushswap_move1.c \
-	ft_pushswap_move2.c \
-	ft_pushswap_move3.c \
-	ft_pushswap_algo1.c \
-	ft_pushswap_algo_utils.c \
-	ft_pushswap_algoturk1.c \
-	ft_pushswap_algoturk2.c
-HEADER			= push_swap.h
-INCLUDES		= push_swap.h -Iprintf
+NAME_BONUS		= checker
+SOURCES			= src/push_swap.c \
+	src/ft_pushswap_inputs.c \
+	src/ft_pushswap_move1.c \
+	src/ft_pushswap_move2.c \
+	src/ft_pushswap_move3.c \
+	src/ft_pushswap_algo.c \
+	src/ft_pushswap_algo_utils.c \
+	src/ft_pushswap_algoturk.c \
+	src/ft_pushswap_algoturk_p2.c \
+	src/ft_pushswap_algoturk_p4.c \
+	src/ft_pushswap_algon5.c
+SOURCES_BONUS	= src/checker_bonus.c \
+	src/ft_pushswap_inputs.c \
+	src/ft_pushswap_move1.c \
+	src/ft_pushswap_move2.c \
+	src/ft_pushswap_move3.c \
+	src/ft_pushswap_algo_utils.c	
+SOURCES_GNL = gnl/get_next_line_bonus.c \
+	gnl/get_next_line_utils_bonus.c
+HEADER			= includes/push_swap.h
+INCLUDES		= includes -Iprintf -Ignl
 OBJECTS			= $(SOURCES:.c=.o)
+OBJECTS_BONUS	= $(SOURCES_BONUS:.c=.o)
+OBJECTS_GNL		= $(SOURCES_GNL:.c=.o)
 
 LIBFT			= libftprintf.a
 LIBFT_FLAGS		= -Lprintf -lftprintf
@@ -43,15 +56,16 @@ $(LIBFT):
 	make -C $(LIBFT_DIR) bonus --no-print-directory
 
 clean:
-	rm -f $(OBJECTS)
+	rm -f $(OBJECTS) $(OBJECTS_BONUS) $(OBJECTS_GNL)
 	make -C $(LIBFT_DIR) clean --no-print-directory
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(NAME_BONUS)
 	make -C $(LIBFT_DIR) fclean --no-print-directory
 
 re: fclean all
 
-bonus: all
+bonus: $(LIBFT) $(OBJECTS_BONUS) $(OBJECTS_GNL)
+	$(CC) $(CFLAGS) $(OBJECTS_BONUS) $(OBJECTS_GNL) $(LIBFT_FLAGS) -o $(NAME_BONUS)
 
 .PHONY: all clean fclean re bonus $(LIBFT)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pushswap_algoturk1.c                            :+:      :+:    :+:   */
+/*   ft_pushswap_algoturk.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 11:29:05 by ljudd             #+#    #+#             */
-/*   Updated: 2025/05/19 10:46:14 by ljudd            ###   ########.fr       */
+/*   Updated: 2025/05/19 11:57:37 by ljudd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,28 +67,14 @@ char	ft_pushswap_sortturk_p2(t_pushswap_ab *ab, char *state)
 /* to what we re trying to insert, and rotate until it s in first*/
 char	ft_pushswap_sortturk_p4(t_pushswap_ab *ab, char *state)
 {
-	int		lowmax;
 	size_t	pos_lm;
-	size_t	k;
 
 	if (ab->nb == 0)
 	{
 		*state = 5;
 		return (-1);
 	}
-	pos_lm = -1;
-	k = -1;
-	lowmax = INT_MAX;
-	while (++k < ab->na)
-	{
-		if ((ab->b[0] < ab->a[k] && ab->a[k] < lowmax))
-		{
-			lowmax = ab->a[k];
-			pos_lm = k;
-		}
-	}
-	if (pos_lm == (size_t) -1)
-		pos_lm = ft_pushswap_lowestpos(ab->a, ab->na);
+	pos_lm = ft_pushswap_sortturk_p4core(ab);
 	if (pos_lm == 0)
 		return (3);
 	else if (pos_lm < ab->na / 2)
